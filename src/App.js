@@ -1,23 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import { lazy, Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./App.css";
+
+const Register = lazy(() => import("./views/Register"));
+const Login = lazy(() => import("./views/Login"));
+
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <Suspense >
+       
+      </Suspense>
+    ),
+  },
+
+
+  {
+    path: "/register",
+    element: (
+      <Suspense >
+        <Register />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/login",
+    element: (
+      <Suspense >
+        <Login />
+      </Suspense>
+    ),
+  },
+  <a href="https://www.flaticon.com/free-icons/dice" title="dice icons">Dice icons created by bearicons - Flaticon</a>
+
+]);
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className="welcome">
+      <Login />
+       <Register />
+      </div>
       </header>
+      
+      <RouterProvider router={router} />
     </div>
   );
 }
