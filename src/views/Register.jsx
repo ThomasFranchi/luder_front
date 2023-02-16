@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Input from "../components/Input";
+import "./style/Register.css"
 
 function Register() {
   // Set UseState for USER / ERRORMESSAGE / SUCCESSMESSAGE
@@ -10,11 +11,11 @@ function Register() {
     password: "",
     nickName: "",
     age: 0,
-    address1: "",
-    address2: "",
-    zipCode: "",
-    city: "",
-    country: "",
+    // address1: "",
+    // address2: "",
+    // zipCode: "",
+    // city: "",
+    // country: "",
   });
 
   const [errorMessage, setErrorMessage] = useState(null);
@@ -39,29 +40,37 @@ function Register() {
   }
 
   return (
-    <div>
-      <h3>S'inscrire</h3>
-      <form onSubmit={handleSubmit}>
+
+    
+    <div className="flip-card">
+
+
+      <div className="flip-card-inner">
+        <div className="flip-card-front">
+        <h3>S'inscrire</h3>
+        </div>
+        <div className="flip-card-back">
+        <form onSubmit={handleSubmit}>
         <Input
           name="firstName"
           label="Prénom"
           onChange={handleChange}
           value={user.firstname}
-          required= "true"
+          required= {true}
         />
         <Input
           name="lastName"
           label="Nom"
           onChange={handleChange}
           value={user.lastname}
-          required= "true"
+          required= {true}
         />
         <Input
           name="email"
           label="email"
           onChange={handleChange}
           value={user.email}
-          required= "true"
+          required= {true}
         />
         <Input
           name="password"
@@ -69,14 +78,14 @@ function Register() {
           onChange={handleChange}
           value={user.password}
           type="password"
-          required= "true"
+          required= {true}
         />
         <Input
           name="nickName"
           label="Pseudo"
           onChange={handleChange}
           value={user.nickName}
-          required= "true"
+          required= {true}
         />
         <Input
           name="age"
@@ -85,7 +94,7 @@ function Register() {
           value={user.age}
           type="number"
         />
-        <Input
+        {/* <Input
           name="address1"
           label="adresse"
           onChange={handleChange}
@@ -114,10 +123,19 @@ function Register() {
           label="Pays"
           onChange={handleChange}
           value={user.country}
-        />
+        /> */}
 
         <button>M'inscrire</button>
       </form>
+      </div>
+    </div>
+
+
+
+
+
+     
+
     </div>
   );
 }

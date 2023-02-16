@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Input from "../components/Input";
 
-function Register() {
+function Login() {
   // Set UseState for USER / ERRORMESSAGE / SUCCESSMESSAGE
   const [user, setUser] = useState({
     email: "",
@@ -18,15 +18,16 @@ function Register() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const { email, password} = user;
+    const {email, password} = user;
     let options = {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(email, password),
+        body: JSON.stringify(user),
     };
-    const result = await fetch ("http://127.0.0.1:3001/register", options)
+    const result = await fetch ("http://127.0.0.1:3001/login", options);
+    console.log(result)
   }
 
   return (
@@ -39,7 +40,7 @@ function Register() {
           label="email"
           onChange={handleChange}
           value={user.email}
-          required= "true"
+          required= {true}
         />
         <Input
           name="password"
@@ -47,7 +48,7 @@ function Register() {
           onChange={handleChange}
           value={user.password}
           type="password"
-          required= "true"
+          required= {true}
         />
         
         <button>Me connecter</button>
@@ -56,4 +57,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Login;
