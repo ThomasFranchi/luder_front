@@ -7,6 +7,8 @@ import ButtonDelete from "../components/ButtonDelete";
 import Button from "../components/atoms/Button"
 import GameEdit from "../components/GameEdit"
 import Sidebar from "../components/sideBar";
+import Footer from "../components/organisms/Footer";
+import SectionModule from "../components/organisms/SectionModule";
 
 function GamesId() {
   //get gamesID from params (URL /:gameId)
@@ -59,9 +61,13 @@ function GamesId() {
       <Sidebar />
     </div>
     <div className="mainContainer-right">
+    <div className="page-container yellow">
+    <h1 className="pageTitle">Ludotèque</h1>
+    <SectionModule title="Fiche de jeu">
           {gameDetail.title === "" && <p>Ce jeu n'existe pas !</p> }
+      
       {gameDetail.title !== "" &&  
-      <div>      <h1>Fiche de jeu:  {gameDetail.title}</h1>
+      <div>      <h1>{gameDetail.title}</h1>
       <p> Titre : {gameDetail.title}</p>
       <p> Editeur : {gameDetail.editor}</p>
       <p> Edition : {gameDetail.edition}</p>
@@ -76,19 +82,14 @@ function GamesId() {
       <Button subClassName="button button-delete">retirer un jeu</Button>
       
       { editIsClicked && < GameEdit gameId={gameId}/>}
-    </div>
+      
+    </div>  
   }  
+  </SectionModule>
+  <Footer />
     </div>
   </div>
-
-
-
-
-
-
-
-
-
+  </div>
 
   );
 }

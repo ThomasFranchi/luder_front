@@ -8,6 +8,7 @@ import ButtonDelete from "../components/ButtonDelete";
 import Sidebar from "../components/sideBar";
 import SectionModule from "../components/organisms/SectionModule";
 import Button from "../components/atoms/Button";
+
 function PlayersId() {
   //get playersID from params (URL /:playerId)
   const { playerId } = useParams();
@@ -57,10 +58,14 @@ function PlayersId() {
       </div>
 
       <div className="mainContainer-right">
+      <div className="page-container green">
+          <h1 className="pageTitle">Joueurs</h1>
+          <div className="page">
+        <SectionModule title={`Fiche de ${playerDetail.nickName}`}>
         {playerDetail.title === "" && <p>Ce jeu n'existe pas !</p>}
         {playerDetail.title !== "" && (
           <div>
-            <h1>Fiche de {playerDetail.nickName} </h1>
+            <h1> {playerDetail.nickName} </h1>
             <p> Pseudo : {playerDetail.nickName}</p>
             <p> Prénom : {playerDetail.firstName}</p>
             <p> Nom : {playerDetail.lastName}</p>
@@ -71,12 +76,15 @@ function PlayersId() {
             <button onClick={() => setEditIsClicked(!editIsClicked)}>
               Modifier les infos du joueur
             </button>
-            <ButtonDelete playerOrSession="players" gameId={playerId} />
+            <ButtonDelete gameOrSession="players" gameId={playerId} />
             {/* { editIsClicked && < PlayerEdit playerId={playerId}/>} */}
             <Button subClassName="button button-put">Modifier</Button>
       <Button subClassName="button button-delete">retirer un jeu</Button>
           </div>
         )}
+        </SectionModule>
+      </div>
+      </div>
       </div>
     </div>
   );

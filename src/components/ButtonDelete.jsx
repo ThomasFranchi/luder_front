@@ -22,7 +22,7 @@ function ButtonDelete({ gameId, gameOrSession }) {
     navigate(`/${gameOrSession}`);
   }
 
-  return <button onClick={deleteGameOrSession}>Supprimer le jeu</button>;
+  return <button onClick={deleteGameOrSession}>Supprimer</button>;
 }
 
 export default ButtonDelete;
