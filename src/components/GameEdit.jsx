@@ -1,9 +1,12 @@
 import Input from "./Input";
 import GamesList from "./GamesList"
-const { useState } = require("react");
+import { useState, useEffect } from "react";
 
-function GamePost() {
-  const [newGame, setNewGame] = useState({
+
+function GameEdit({gameId}) {
+  const [game, setGame] = useState({})
+  
+  const [editGame, setEditGame] = useState({
     title: "",
     editor: "",
     edition: "",
@@ -18,11 +21,30 @@ function GamePost() {
   const [errorMessage, setErrorMessage] = useState(null);
 
   function handleChange(e) {
-    setNewGame({ ...newGame, [e.target.name]: e.target.value });
+    setEditGame({ ...editGame, [e.target.name]: e.target.value });
   }
 
-  console.log(newGame);
-  // Submit input to DB to create a new Game
+  
+  useEffect(() => {
+    getSessionsList();
+  }, []);
+
+
+    // get the json game collection from DB
+    async function getSessionsList() {
+      const options = {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      };
+      const result = await fetch(`http://127.0.0.1:3001/games/${gameId}`, options);
+      let data = await result.json();
+      setEditGame(data)
+      console.log(data);
+    }
+  
+  
+  
+  // Submit input to DB to Modify an existing Game
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -36,19 +58,19 @@ function GamePost() {
       maxPlayers,
       minRecommendedAge,
       averageDuration,
-    } = newGame;
+    } = editGame;
 
     // Fetch options
     let options = {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newGame),
+      body: JSON.stringify(editGame),
     };
 
     // Post data to DB on /login routes
-    const result = await fetch("http://127.0.0.1:3001/games", options);
+    const result = await fetch(`http://127.0.0.1:3001/games/${gameId}`, options);
     // Response from DB on /login routes
     const data = await result.json();
 
@@ -60,47 +82,39 @@ function GamePost() {
   
       setSuccessMessage(data.message);
       setErrorMessage(null);
-      setNewGame({    title: "",
-      editor: "",
-      edition: "",
-      releaseDate: 2023,
-      language: "Français",
-      minPlayers: "1",
-      maxPlayers: "1",
-      minRecommendedAge: "12",
-      averageDuration: 60, });
+  
   }
 
   return (
     <div>
-      <h3>Ajouter un jeu à la liste</h3>
+      <h3>Modifier les informations du jeux</h3>
       <form onSubmit={handleSubmit}>
         <Input
           name="title"
           label="Titre du jeu"
           onChange={handleChange}
-          value={newGame.title}
+          value={editGame.title}
           required={true}
         />
         <Input
           name="editor"
           label="Editeur"
           onChange={handleChange}
-          value={newGame.editor}
+          value={editGame.editor}
           required={true}
         />
         <Input
           name="edition"
           label="Edition"
           onChange={handleChange}
-          value={newGame.edition}
+          value={editGame.edition}
           required={true}
         />
         <Input
           name="releaseDate"
           label="Année de sortie"
           onChange={handleChange}
-          value={newGame.releaseDate}
+          value={editGame.releaseDate}
           required={true}
           type="number"
         />
@@ -108,14 +122,14 @@ function GamePost() {
           name="language"
           label="Langue"
           onChange={handleChange}
-          value={newGame.language}
+          value={editGame.language}
           required={true}
         />
         <Input
           name="minPlayers"
           label="Nombre de joueur(s) minimal"
           onChange={handleChange}
-          value={newGame.minPlayers}
+          value={editGame.minPlayers}
           required={true}
           type="number"
         />
@@ -123,7 +137,7 @@ function GamePost() {
           name="maxPlayers"
           label="Nombre de joueur(s) maximal"
           onChange={handleChange}
-          value={newGame.maxPlayers}
+          value={editGame.maxPlayers}
           required={true}
           type="number"
         />
@@ -131,7 +145,7 @@ function GamePost() {
           name="minRecommendedAge"
           label="Age minimal"
           onChange={handleChange}
-          value={newGame.minRecommendedAge}
+          value={editGame.minRecommendedAge}
           required={true}
           type="number"
         />
@@ -139,12 +153,12 @@ function GamePost() {
           name="averageDuration"
           label="Durée moyenne d'une partie"
           onChange={handleChange}
-          value={newGame.averageDuration}
+          value={editGame.averageDuration}
           required={true}
           type="number"
         />
 
-        <button>Ajouter le jeu</button>
+        <button>Modifier les informations</button>
 
         {errorMessage !== null && <p>Erreur: {errorMessage}</p>}
       {successMessage !== null && <p>{successMessage}</p>}
@@ -153,4 +167,4 @@ function GamePost() {
   );
 }
 
-export default GamePost;
+export default GameEdit;

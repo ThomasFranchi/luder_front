@@ -5,3 +5,9 @@
 .arrayCell {
 padding: 2px 10px;
 }
+
+.mainContainer {
+    display: flex; 
+    min-height: 100vh;
+}
+

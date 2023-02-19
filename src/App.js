@@ -1,12 +1,15 @@
 import { lazy, Suspense } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, useParams} from "react-router-dom";
 import "./App.css";
 
-const Register = lazy(() => import("./views/Register"));
-const Login = lazy(() => import("./views/Login"));
+
 const Sessions = lazy(() => import("./views/Sessions"));
 const Games = lazy(() => import("./views/Games"));
+const GamesId = lazy(() => import("./views/GamesId"));
 const Home = lazy(() => import("./views/Home"));
+const Error = lazy(() => import("./views/Error"));
+const Players = lazy(() => import("./views/Players"));
+const PlayerId = lazy(() => import("./views/PlayerId"));
 
 
 const router = createBrowserRouter([
@@ -17,24 +20,10 @@ const router = createBrowserRouter([
        <Home />
       </Suspense>
     ),
+    errorElement : <Error />
   },
 
-  {
-    path: "/register",
-    element: (
-      <Suspense >
-        <Register />
-      </Suspense>
-    ),
-  },
-  {
-    path: "/login",
-    element: (
-      <Suspense >
-        <Login />
-      </Suspense>
-    ),
-  },
+
   {
     path: "/sessions",
     element: (
@@ -51,6 +40,32 @@ const router = createBrowserRouter([
       </Suspense>
     ),
   },
+  {
+    path: "/games/:gameId",
+    element: (
+      <Suspense >
+        <GamesId />
+      </Suspense>
+    ),
+  },
+
+  {
+    path: "/players",
+    element: (
+      <Suspense >
+        <Players />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/players/:playerId",
+    element: (
+      <Suspense >
+        <PlayerId />
+      </Suspense>
+    ),
+  },
+
 
 
 

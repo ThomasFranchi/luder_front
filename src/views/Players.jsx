@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Input from "../components/Input";
 import "./style/listViews.css"
-import GamesList from "../components/GamesList"
+import PlayersList from "../components/PlayersList"
 import Sidebar from "../components/sideBar";
 
- function Games() {
+ function Players() {
    // Set UseState for USER / ERRORMESSAGE / SUCCESSMESSAGE
 
    const [errorMessage, setErrorMessage] = useState(null);
@@ -21,9 +21,8 @@ import Sidebar from "../components/sideBar";
        },
      };
      console.log(options);
-     const response = await fetch("http://localhost:3001/games", options);
+     const response = await fetch("http://localhost:3001/players", options);
      const data = await response.json();
-     console.log("data  from front", data);
    }
 
    getUserInfo();
@@ -34,12 +33,12 @@ import Sidebar from "../components/sideBar";
          <Sidebar />
        </div>
        <div className="right">
-         <h1>Liste des jeux</h1>
-         <GamesList />
+         <h1>Liste des  joueurs inscrits</h1>
+         <PlayersList />
        </div>
      </div>
    );
  }
 
 
-export default Games;
+export default Players;

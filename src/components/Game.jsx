@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 
 function Game({
+  _id,
   title,
   editor,
   edition,
@@ -14,7 +17,7 @@ function Game({
   return (
     <div>
       <div className="gameArray">
-        <div className="arrayCell">{title} </div>
+        <div className="arrayCell"> <Link to={`/games/${_id}`} className="link">{title}</Link> </div>
         <div className="arrayCell">{editor}</div>
         <div className="arrayCell">{edition}</div>
         <div className="arrayCell">{releaseDate}</div>
@@ -23,7 +26,8 @@ function Game({
         <div className="arrayCell">{maxPlayers}</div>
         <div className="arrayCell">{minRecommendedAge}</div>
         <div className="arrayCell">{averageDuration}</div>
-        <button> </button>
+        <Link to={`/games/${_id}`} className="link"><button> détails</button></Link> 
+   
       </div>
     </div>
   );

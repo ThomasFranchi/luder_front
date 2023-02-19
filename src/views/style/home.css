@@ -1,0 +1,23 @@
+.logoHome{
+    margin: 50px auto;
+
+}
+
+.welcome {
+    display: flex;
+    font-size: 1.4rem;
+  }
+
+.login, .register {
+    margin : 0 20px;
+    display: flex;
+  }
+
+  .btnhome {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    margin: 20px auto;
+    background-color: rgb(233, 167, 167);
+  }

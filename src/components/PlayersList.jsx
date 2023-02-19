@@ -1,38 +1,37 @@
 import { useState, useEffect } from "react";
-import Game from "./Game";
-import GamePost from "./GamePost"
+import Player from "./Player";
 
 function GamesList() {
-  const [games, setGames] = useState([]);
+  const [players, setPlayers] = useState([]);
 
   // Load the first time
   useEffect(() => {
-    getGamesList();
+    getPlayersList();
   }, []);
 
   // get the json game collection from DB
-  async function getGamesList() {
+  async function getPlayersList() {
     const options = {method: 'GET',
          headers: {'Content-Type': 'application/json'}, 
         };
-    const result = await fetch("http://127.0.0.1:3001/games", options);
+    const result = await fetch("http://127.0.0.1:3001/players", options);
     let data = await result.json();
     console.log(data)
 
     // check is the const Data is an Array
     if (Array.isArray(data)) {
-      setGames(data);
-      console.log("GAMES",games)
+      setPlayers(data);
+      console.log("JOUEURS",players)
     } };
 
     return (
         <div>
-            <h1>TEST GAMES</h1>
-        <button onClick={getGamesList}>rafraichir la liste</button>
-          {games.map((game) => (
-            <Game {...game} />
+            <h1>Joueurs</h1>
+        <button onClick={getPlayersList}>rafraichir la liste</button>
+          {players.map((player) => (
+            <Player {...player} />
           ))}
-          <GamePost />
+ 
         </div>
       );
 }
