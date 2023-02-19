@@ -6,10 +6,10 @@
 padding: 2px 10px;
 }
 
-.mainContainer {
+/* .mainContainer {
     display: flex; 
     min-height: 100vh;
-}
+} */
 
 .right {
     display : flex;

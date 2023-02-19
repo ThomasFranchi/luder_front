@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Session from "./Session";
-import SessionPost from "./SessionPost";
 
 function SessionsList() {
   const [sessions, setSessions] = useState([]);
@@ -35,7 +34,7 @@ function SessionsList() {
       {sessions.map((session) => (
         <Session {...session} />
       ))}
-      <SessionPost />
+ 
     </div>
   );
 }

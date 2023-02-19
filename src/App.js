@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider, useParams} from "react-router-dom";
-import "./App.css";
+// import "./App.css";
+import "./views/style/views.css";
 
 
 const Sessions = lazy(() => import("./views/Sessions"));

@@ -52,10 +52,10 @@ function PlayersId() {
 
   return (
     <div className="mainContainer">
-    <div className="left">
+    <div className="mainContainer-left">
       <Sidebar />
     </div>
-    <div className="right">
+    <div className="mainContainer-right">
           {playerDetail.title === "" && <p>Ce jeu n'existe pas !</p> }
       {playerDetail.title !== "" &&  
       <div>      <h1>Fiche de {playerDetail.nickName} </h1>

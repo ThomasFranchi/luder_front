@@ -5,7 +5,12 @@
     flex-direction: column;
     margin: 0;
     padding: 10px;
+  
 }
+.sidebar li:last-child  {
+vertical-align: bottom;
+margin: 200px 0 }
+
 
 .sidebar .link, .btnLogout, .sidebar li {
     color: rgb(255, 255, 255);
@@ -21,6 +26,13 @@
     text-align: center;
     list-style: none;
 }
+
+.sidebar li {
+    padding: 16px 10px;
+    text-align: center;
+    list-style: none;
+}
+
 
 
 .sidebar .link:hover, .btnLogout:hover {
@@ -43,3 +55,8 @@ nav.sidebar {
     margin:  auto;
     padding: 20px 20px;
 }
+
+.sideBar-li-avatar {
+    margin-bottom: 20px;
+}
+

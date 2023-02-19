@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+  
+/* 
+ COLORS
+*/
+  
+.green {
+background-color: #c2c982;
+/* #878765  #61644e */
+}
+
+.red  {
+  background-color: #f6ad9f
+  /* #e2858e  #ae5e64 */
+}
+
+
+.yellow {
+background-color: #fbb27b ;
+/*  #e07a5c #9c5b48 */
+}
+
+.blue {
+background-color: #83b5a4;
+/*  #8a9492 #455b60 */
+}
+
+
+/* 
+MainContainer
+*/
+
+
+.mainContainer {
+    display: flex; 
+    height: 100%;
+}
+
+
+.mainContainer-right {
+    display : flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.page-container {
+    width: calc( 100vw - 220px);
+    height: 100%
+}
+
+.page-container .pageTitle {
+text-align: left;
+color: White;
+font-size: 4rem;
+padding-left: 40px;
+margin: 0 10px 26px 0 
+
+}
+
+.page {
+    background-color: #282c3448;
+    /* opacity: 0.2; */
+    width: 90%;
+    margin: 0 auto 40px auto;
+    border-radius: 40px;   
+    padding: 20px 0
+}
+
+
+
+/* 
+APP.JS
+*/
+
+
+  .App {
+    text-align: center;
+  }
+  
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  

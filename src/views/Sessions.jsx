@@ -1,8 +1,13 @@
 import { useState, useEffect } from "react";
 import Input from "../components/Input";
 import SessionsList from "../components/SessionList";
+import SessionPost from "../components/SessionPost";
+import Session from "../components/Session";
 import Sidebar from "../components/sideBar";
+import SectionModule from "../components/organisms/SectionModule";
 import "./style/sessions.css"
+
+
 
 function Sessions() {
   const [sessionsSearch, setSessionsSearch] = useState([]);
@@ -24,12 +29,20 @@ function Sessions() {
 
   return (
     <div className="mainContainer">
-      <div className="left">
+      <div className="mainContainer-left">
         <Sidebar />
       </div>
-      <div className="right">
-        <h1>Liste des Sessions</h1>
-        <SessionsList />
+      <div className="mainContainer-right">
+      <div className="page-container red">
+        <h1 className="pageTitle">Parties / Sessions</h1>
+        <div className="page">
+        <SectionModule title="Ma Partie"><Session /></SectionModule> 
+        <SectionModule title="Toutes mes Parties"><Session /></SectionModule> 
+        <SectionModule title="Crée une partie"><SessionPost /></SectionModule> 
+        <SectionModule title="Toutes les parties"><SessionsList /></SectionModule> 
+       
+        </div>
+        </div>
       </div>
     </div>
   );

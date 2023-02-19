@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Game from "./Game";
-import GamePost from "./GamePost"
+
 
 function GamesList() {
   const [games, setGames] = useState([]);
@@ -27,12 +27,11 @@ function GamesList() {
 
     return (
         <div>
-            <h1>TEST GAMES</h1>
         <button onClick={getGamesList}>rafraichir la liste</button>
           {games.map((game) => (
             <Game {...game} />
           ))}
-          <GamePost />
+     
         </div>
       );
 }

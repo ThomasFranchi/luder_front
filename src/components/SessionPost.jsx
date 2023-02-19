@@ -52,7 +52,6 @@ function SessionPost() {
                  console.log(latitude, longitude)
                   setNewSession({...newSession, [newSession.lon]: position.coords.longitude})
                   setNewSession({...newSession, [newSession.lat]: position.coords.latitude})
-
                  console.log(newSession)
             }
             // ,
@@ -63,11 +62,6 @@ function SessionPost() {
             );
        }
   }
-
-  useEffect(() => {
-    getLocation();
-  },[]);
-
 
 
 
@@ -231,6 +225,7 @@ function SessionPost() {
           required={true}
         />
         <button>Créer votre session</button>
+        <button onClick={getLocation}>Me localiser</button>
         {status !== null && <p> {status}</p>}
         {errorMessage !== null && <p>Erreur: {errorMessage}</p>}
       {successMessage !== null && <p>{successMessage}</p>}

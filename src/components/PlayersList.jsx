@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Player from "./Player";
 
-function GamesList() {
+function PlayersList({children}) {
   const [players, setPlayers] = useState([]);
 
   // Load the first time
@@ -26,7 +26,7 @@ function GamesList() {
 
     return (
         <div>
-            <h1>Joueurs</h1>
+            <h1>Joueurs</h1>{children}
         <button onClick={getPlayersList}>rafraichir la liste</button>
           {players.map((player) => (
             <Player {...player} />
@@ -36,4 +36,4 @@ function GamesList() {
       );
 }
 
-export default GamesList;
+export default PlayersList;
