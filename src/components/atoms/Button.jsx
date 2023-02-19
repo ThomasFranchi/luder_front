@@ -1,5 +1,7 @@
-export default function Button(props) {
+import "./style/atomsStyle.css"
+
+export default function Button({children, subClassName, }) {
     return (
-        <button>{props.children}</button>
+        <button className={subClassName} >{children}</button>
     )
 }

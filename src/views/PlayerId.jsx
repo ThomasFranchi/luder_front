@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import Input from "../components/Input";
-import "./style/listViews.css"
+import "./style/listViews.css";
 import PlayersList from "../components/PlayersList";
 import { Routes, Route, useParams } from "react-router-dom";
-import ButtonDelete from "../components/ButtonDelete"
+import ButtonDelete from "../components/ButtonDelete";
 // import PlayerEdit from "../components/PlayerEdit"
 import Sidebar from "../components/sideBar";
+import SectionModule from "../components/organisms/SectionModule";
 
 function PlayersId() {
   //get playersID from params (URL /:playerId)
   const { playerId } = useParams();
 
-    const [editIsClicked,setEditIsClicked] = useState(false)
+  const [editIsClicked, setEditIsClicked] = useState(false);
 
   const [playerDetail, setPlayerDetail] = useState({
     nickName: "",
@@ -22,7 +23,6 @@ function PlayersId() {
     gameCollection: "",
     sessionHosted: "",
     sessionPlayed: "",
-
   });
 
   // Load the first time
@@ -46,44 +46,37 @@ function PlayersId() {
     );
     let data = await result.json();
     if (data !== null) {
-    setPlayerDetail(data);}
+      setPlayerDetail(data);
+    }
   }
-
 
   return (
     <div className="mainContainer">
-    <div className="mainContainer-left">
-      <Sidebar />
+      <div className="mainContainer-left">
+        <Sidebar />
+      </div>
+
+      <div className="mainContainer-right">
+        {playerDetail.title === "" && <p>Ce jeu n'existe pas !</p>}
+        {playerDetail.title !== "" && (
+          <div>
+            <h1>Fiche de {playerDetail.nickName} </h1>
+            <p> Pseudo : {playerDetail.nickName}</p>
+            <p> Prénom : {playerDetail.firstName}</p>
+            <p> Nom : {playerDetail.lastName}</p>
+            <p> Email : {playerDetail.email}</p>
+            <p> Age: {playerDetail.age}</p>
+            <p> Nombre de partie hébergées : {playerDetail.sessionHosted}</p>
+            <p> Nombre de partie jouées : {playerDetail.sessionPlayed}</p>
+            <button onClick={() => setEditIsClicked(!editIsClicked)}>
+              Modifier les infos du joueur
+            </button>
+            <ButtonDelete playerOrSession="players" gameId={playerId} />
+            {/* { editIsClicked && < PlayerEdit playerId={playerId}/>} */}
+          </div>
+        )}
+      </div>
     </div>
-    <div className="mainContainer-right">
-          {playerDetail.title === "" && <p>Ce jeu n'existe pas !</p> }
-      {playerDetail.title !== "" &&  
-      <div>      <h1>Fiche de {playerDetail.nickName} </h1>
-      <p> Pseudo : {playerDetail.nickName}</p>
-      <p> Prénom : {playerDetail.firstName}</p>
-      <p> Nom : {playerDetail.lastName}</p>
-      <p> Email : {playerDetail.email}</p>
-      <p> Age: {playerDetail.age}</p>
-      <p> Nombre de partie hébergées : {playerDetail.sessionHosted}</p>
-      <p> Nombre de partie jouées : {playerDetail.sessionPlayed}</p>
-      <button onClick={() => setEditIsClicked(!editIsClicked)}>Modifier les infos du joueur</button>
-      <ButtonDelete playerOrSession="players" gameId={playerId}/>
-      
-      {/* { editIsClicked && < PlayerEdit playerId={playerId}/>} */}
-    </div>
-  }  
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
   );
 }
 

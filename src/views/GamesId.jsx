@@ -54,10 +54,10 @@ function GamesId() {
 
 
     <div className="mainContainer">
-    <div className="left">
+    <div className="mainContainer-left">
       <Sidebar />
     </div>
-    <div className="right">
+    <div className="mainContainer-right">
           {gameDetail.title === "" && <p>Ce jeu n'existe pas !</p> }
       {gameDetail.title !== "" &&  
       <div>      <h1>Fiche de jeu:  {gameDetail.title}</h1>

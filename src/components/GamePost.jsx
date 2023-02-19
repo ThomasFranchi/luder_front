@@ -1,5 +1,6 @@
 import Input from "./Input";
 import GamesList from "./GamesList"
+import Button from "../components/atoms/Button";
 const { useState } = require("react");
 
 function GamePost() {
@@ -145,6 +146,7 @@ function GamePost() {
         />
 
         <button>Ajouter le jeu</button>
+        <Button subClassName=" button button-post" >  Ajouter le jeu </Button>
 
         {errorMessage !== null && <p>Erreur: {errorMessage}</p>}
       {successMessage !== null && <p>{successMessage}</p>}

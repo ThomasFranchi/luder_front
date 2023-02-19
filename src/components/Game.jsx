@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import Button from "./atoms/Button";
 
 function Game({
   _id,
@@ -26,8 +26,10 @@ function Game({
         <div className="arrayCell">{maxPlayers}</div>
         <div className="arrayCell">{minRecommendedAge}</div>
         <div className="arrayCell">{averageDuration}</div>
-        <Link to={`/games/${_id}`} className="link"><button> détails</button></Link> 
-   
+        <Link to={`/games/${_id}`} className="link">    <Button subClassName="button button-get">Détails</Button></Link> 
+    <Button subClassName="button button-post">Ajouter un jeu</Button>
+    <Button subClassName="button button-delete">retirer un jeu</Button>
+
       </div>
     </div>
   );

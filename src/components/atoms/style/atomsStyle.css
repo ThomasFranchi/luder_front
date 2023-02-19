@@ -1,3 +1,26 @@
 .avatar {
     width: 126px;
 }
+
+.button {
+    border: none;
+    border-radius: 2px;
+    padding: 6px 10px;
+    margin: 6px 10px
+}
+
+.button-delete {
+    background-color: #f6ad9f ;
+}
+
+.button-get {
+   
+}
+
+.button-put {
+    background-color: #fbb27b;
+}
+
+.button-post {
+    background-color: #c2c982 ;
+}

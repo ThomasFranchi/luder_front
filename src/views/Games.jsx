@@ -8,6 +8,7 @@ import SectionModule from "../components/organisms/SectionModule";
 import GamePost from "../components/GamePost";
 import Footer from "../components/organisms/Footer";
 
+
 import Sidebar from "../components/sideBar";
 
 function Games() {
@@ -47,7 +48,6 @@ function Games() {
           <SectionModule title="Mes jeux">  <Game /> </SectionModule>
           <SectionModule title="Ajouter un jeu">  <GamePost /> </SectionModule>
           <SectionModule title="Tous les jeux">  <GamesList /> </SectionModule>
-
           </div>
           <Footer />
         </div>

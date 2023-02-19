@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Button from "./atoms/Button";
+import { Link } from "react-router-dom";
 
 function Session({
     sessionDate,
@@ -26,6 +28,9 @@ function Session({
         <div className="arrayCell">
           {" "}
           <button> </button>{" "}
+         
+    <Button subClassName="button button-put">Modifier</Button>
+    <Button subClassName="button button-delete">Supprimer</Button>
         </div>
       </div>
     </div>
