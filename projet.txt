@@ -1,0 +1,239 @@
+respecter une nomencalture (majuscule aux bons endroits systématiquement par exemple).
+
+faire le points des requettes Page par page !
+documenter chaque routes 
+
+exemple : GET /products
+
+requete: rien
+reponse : { products : [ { _id, nom, prix}, ... ]
+
+quelles fonctionnalités.
+
+construire les schema de structures de bases de données.
+
+{ _id :  , nom : String, prix, Number}
+
+pages : ----------
+Accueil :
+resgister:
+mot de passe
+mon profil / ludothèque
+
+Chercher : par joueur / par jeux possédés
+
+Publier des postes : ce soir je joue au Monopoly (il nous reste jusqu'à deux places).
+Publier les scores d'une partie.
+
+catalogue de jeux : 
+	ajouter un jeu au catalogue
+	pages par jeux avec discussion.
+	lien vers les scores de chaque jeux.
+
+
+Pages du tableau des scores par jeux / par joueur. 
+
+localisation de partie (physique ou a distance).
+
+joueurs s'inscrire à la partie.
+
+scoreboard (un peu compliqué car il ne faut pas mesurer que perdant / gagnant 
+
+outil pour documentation de routes backend (ne pas forcement utiliser car difficile)
+swagger editor.
+
+editor.swagger.io (format YAML).
+
+
+Struture de la base de données :
+
+
+
+
+
+IDENTIFIER LES ROUTES
+
+-----------------
+"/" (home)
+-------------------------------------------------------
+
+
+GET (ALL) get active session list (open, closed but not finished)
+		OR all active session list within a perimeter ( 1km, 2 km, 3 km, 5km, 10 km, 25km, 50 km, 100km, all France)
+
+	GET (user) get user info	
+
+
+
+
+
+-------------
+"/login"
+-------------------------------------------------------
+
+POST (non identified user) 
+	200: “Everything is OK.” 
+
+	(err)	
+	401 user or password error
+	422 (manque champs)
+	500
+
+
+-------------
+"/register"
+-------------------------------------------------------
+
+POST (non identified user) create a new profile.
+	201: “Created.”
+
+	(err) 
+	422 (manque champs)
+
+
+---------------
+"/sessions"
+-------------------------------------------------------
+
+GET (ALL) get the list of all session (opened, close, finished)
+	200
+
+POST (ALL) create new session
+	201: “Created.”
+
+	(err)
+	422
+
+
+
+
+
+"/sessions/:sessionId
+---------------------
+
+GET (ALL) get info on selected session
+	(err) res.status(404)
+
+POST (only already register to play) leave session.
+
+PUT (owner) modify session parameters
+
+DELETE (owner and admin) delete session instance.
+	204: “No Content.”
+
+
+"/sessions/:sessionId/comment
+-----------------------------
+
+POST (ALL) Comment
+	201: “Created.” 
+
+"/sessions/:sessionId/join
+-----------------------------
+
+POST (ALL except Owner and already register to play) join session.
+
+
+--------------
+"/games"
+-------------------------------------------------------
+
+GET (all) list of all games
+
+POST (all) create a new game
+	201: “Created.” 
+
+
+"/games/:gameId"
+-------------------
+
+GET (all) selected game info
+
+PUT (creator only)
+
+DELETE (admin only)
+	204: “No Content.”
+
+"/games/:gameId/like"
+	POST (all) Likes on game
+	201: “Created.” 
+
+"/games/:gameId/post"
+	POST (all) likes on posts
+	201: “Created.” 
+
+
+-------------
+/Players
+-------------------------------------------------------
+
+GET (all) get all players list
+
+	GET (all) get searched player info
+
+
+/players/:id
+-------------
+
+GET (all) get selected player info
+
+PUT (admin only) modify user profile
+
+DELETE (admin only) delete user profile
+
+
+/players/me
+-------------
+
+PUT (user & admin) modify user profile
+
+DELETE (user & admin) delete user profile
+
+
+--------------------- Errors ---------------------
+
+201: “Created.” The server has fulfilled the browser’s request, and as a result, has created a new resource.
+
+204: “No Content.” This code means that the server has successfully processed the request, but is not going to return any content.
+
+400: “Bad Request.” 
+
+401: “Unauthorized”
+
+404: “The requested resource was not found.” 
+
+422: manque email ou mot de passe (exemple pour login)
+
+500: “There was an error on the server and the request could not be completed.” 
+
+
+
+
+
+
+!-!-!---------- TODO ----------!-!-!
+
+
+
+
+
+Fonction : ROLE THE DICE : choisi un jeu pour toi.(rajouter type de jeu dans les catégories).
+
+
+afficher les messages (connexion réussie // error ) dans le front.
+
+Key pour les map
+
+LocalStorage
+session storage
+JWT
+
+INDEX true pour faire un NameID (pour ettre le nom concaténé dans l'url.
+
+MARCHE PAS :
+
+COORDONNE dans SESEEIONPOST
+
+POST DANS GAMESID et bACK CONTROLLER GAME
+
+ERROR SI LOGIN INCORRECT
