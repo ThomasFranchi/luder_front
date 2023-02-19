@@ -7,7 +7,7 @@ import ButtonDelete from "../components/ButtonDelete";
 // import PlayerEdit from "../components/PlayerEdit"
 import Sidebar from "../components/sideBar";
 import SectionModule from "../components/organisms/SectionModule";
-
+import Button from "../components/atoms/Button";
 function PlayersId() {
   //get playersID from params (URL /:playerId)
   const { playerId } = useParams();
@@ -73,6 +73,8 @@ function PlayersId() {
             </button>
             <ButtonDelete playerOrSession="players" gameId={playerId} />
             {/* { editIsClicked && < PlayerEdit playerId={playerId}/>} */}
+            <Button subClassName="button button-put">Modifier</Button>
+      <Button subClassName="button button-delete">retirer un jeu</Button>
           </div>
         )}
       </div>

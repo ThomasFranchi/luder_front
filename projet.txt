@@ -224,16 +224,47 @@ afficher les messages (connexion réussie // error ) dans le front.
 
 Key pour les map
 
+
+!-!-!---------- ERREUR   ----------!-!-!
+
+
+button : créer un composant bouton et lui rajouter des composants function GET / POST / PUT / DELETE
+
+1 . Problème JWT connexion
+
 LocalStorage
 session storage
 JWT
 
-INDEX true pour faire un NameID (pour ettre le nom concaténé dans l'url.
+
+2. POST DANS GAMESID et bACK CONTROLLER GAME
+
+ERROR SI LOGIN INCORRECT
+
+
+3. BACK : PUT ne fonctionne pas => FRONT : GAME EDIT
+
+
+
+4. Si je fais une liste des jeux [] possédé par le jouer. Il faut que je mette quoi dans ce tableau par jeu ?
+
+[{nom: Dune Imperium, id:56468765413546587, nomRegex: dune_imperium}] ?
+
+
+
+5. Github : clone sur PC2 dit qu'il est à jour meme si j'ai Push sur GITHUB depuis PC1
+
+
+6. Comment faire un composant FONCTION qui ne render rien ?
+Comment l'appeler? 
+
+
+
+INDEX true pour faire un NameID (pour ettre le nom concaténé dans l'url.)
 
 MARCHE PAS :
 
 COORDONNE dans SESEEIONPOST
 
-POST DANS GAMESID et bACK CONTROLLER GAME
 
-ERROR SI LOGIN INCORRECT
+

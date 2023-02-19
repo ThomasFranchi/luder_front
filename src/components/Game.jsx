@@ -27,8 +27,7 @@ function Game({
         <div className="arrayCell">{minRecommendedAge}</div>
         <div className="arrayCell">{averageDuration}</div>
         <Link to={`/games/${_id}`} className="link">    <Button subClassName="button button-get">Détails</Button></Link> 
-    <Button subClassName="button button-post">Ajouter un jeu</Button>
-    <Button subClassName="button button-delete">retirer un jeu</Button>
+
 
       </div>
     </div>

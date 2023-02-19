@@ -3,7 +3,8 @@ import Input from "../components/Input";
 import "./style/listViews.css"
 import GamesList from "../components/GamesList";
 import { Routes, Route, useParams } from "react-router-dom";
-import ButtonDelete from "../components/ButtonDelete"
+import ButtonDelete from "../components/ButtonDelete";
+import Button from "../components/atoms/Button"
 import GameEdit from "../components/GameEdit"
 import Sidebar from "../components/sideBar";
 
@@ -71,6 +72,8 @@ function GamesId() {
       <p> Durée moyenne : {gameDetail.averageDuration}</p>
       <button onClick={() => setEditIsClicked(!editIsClicked)}>Modifier les infos du jeu</button>
       <ButtonDelete gameOrSession="games" gameId={gameId}/>
+      <Button subClassName="button button-post">Ajouter un jeu</Button>
+      <Button subClassName="button button-delete">retirer un jeu</Button>
       
       { editIsClicked && < GameEdit gameId={gameId}/>}
     </div>
