@@ -11,8 +11,10 @@ function PlayersList({children}) {
 
   // get the json game collection from DB
   async function getPlayersList() {
+    const token = localStorage.getItem("token");
     const options = {method: 'GET',
-         headers: {'Content-Type': 'application/json'}, 
+         headers: {'Content-Type': 'application/json',
+         Authorization: "bearer " + token}, 
         };
     const result = await fetch("http://127.0.0.1:3001/players", options);
     let data = await result.json();

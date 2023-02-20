@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "../components/Input";
 import "./style/listViews.css";
 import PlayersList from "../components/PlayersList";
@@ -26,7 +26,11 @@ function Players({children}) {
     const data = await response.json();
   }
 
-  getUserInfo();
+  useEffect(() => {
+    getUserInfo();
+  }, []);
+
+ 
 
   return (
     <div className="mainContainer">

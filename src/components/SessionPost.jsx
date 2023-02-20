@@ -103,11 +103,14 @@ function SessionPost() {
         postLikes,
     } = newSession;
 
+    const token = localStorage.getItem("token");
+
     // Fetch options
     let options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "bearer " + token
       },
       body: JSON.stringify(newSession),
     };

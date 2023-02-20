@@ -18,6 +18,8 @@ function Games() {
   const [successMessage, setsuccessMessage] = useState(null);
 
   async function getUserInfo() {
+
+    // get token from localStorage
     const token = localStorage.getItem("token");
 
     /* Configuration de la requÃªte */
@@ -33,6 +35,8 @@ function Games() {
     console.log("data  from front", data);
   }
 
+  /// METTRE DANNS UN USEEFFECT
+  
   getUserInfo();
 
   return (

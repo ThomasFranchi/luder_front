@@ -1,7 +1,7 @@
 import "./style/atomsStyle.css"
 
-export default function Button({children, subClassName, }) {
+export default function Button({children, subClassName, onClick }) {
     return (
-        <button className={subClassName} >{children}</button>
+        <button className={subClassName} onClick={onClick} >{children}</button>
     )
 }

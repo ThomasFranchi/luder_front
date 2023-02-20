@@ -11,9 +11,12 @@ function GamesList() {
 
   // get the json game collection from DB
   async function getGamesList() {
+    const token = localStorage.getItem("token");
+
     const options = {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", 
+      Authorization: "bearer " + token },
     };
     const result = await fetch("http://127.0.0.1:3001/games", options);
     let data = await result.json();
@@ -28,32 +31,34 @@ function GamesList() {
 
   return (
     <div>
+        <button onClick={getGamesList}>rafraichir la liste</button>
       <div class="table-container" role="table" aria-label="Destinations">
         <div class="flex-table header" role="rowgroup">
-          <div class="flex-row first" role="columnheader">
+          <div class="flex-row nbColumn6 " role="columnheader">
             Jeu
           </div>
-          <div class="flex-row" role="columnheader">
-            Events
+          <div class="flex-row nbColumn6 " role="columnheader">
+            Editeur
           </div>
-          <div class="flex-row" role="columnheader">
+          <div class="flex-row nbColumn6 " role="columnheader">
+            Langue
+          </div>
+          <div class="flex-row nbColumn6 " role="columnheader">
             Nb min.
           </div>
-          <div class="flex-row" role="columnheader">
+          <div class="flex-row nbColumn6 " role="columnheader">
           Nb max.
           </div>
-          <div class="flex-row" role="columnheader">
+          <div class="flex-row nbColumn6 " role="columnheader">
           Durée
           </div>
-          <div class="flex-row" role="columnheader">
-          Status
+          <div class="flex-row nbColumn6 " role="columnheader">
           </div>
-
 
         </div>
       </div>
 
-      <button onClick={getGamesList}>rafraichir la liste</button>
+    
       {games.map((game) => (
         <Game {...game} />
       ))}

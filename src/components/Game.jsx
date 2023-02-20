@@ -17,17 +17,17 @@ function Game({
   return (
     <div>
       <div className="gameArray">
-        <div className="arrayCell"> <Link to={`/games/${_id}`} className="link">{title}</Link> </div>
-        <div className="arrayCell">{editor}</div>
-        <div className="arrayCell">{edition}</div>
-        <div className="arrayCell">{releaseDate}</div>
-        <div className="arrayCell">{language}</div>
-        <div className="arrayCell">{minPlayers}</div>
-        <div className="arrayCell">{maxPlayers}</div>
-        <div className="arrayCell">{minRecommendedAge}</div>
-        <div className="arrayCell">{averageDuration}</div>
+        <div className="flex-row nbColumn6"> <Link to={`/games/${_id}`} className="link">{title}</Link> </div>
+        <div className="flex-row nbColumn6">{editor}</div>
+        {/* <div className="arrayCell">{edition}</div>
+        <div className="arrayCell">{releaseDate}</div> */}
+        <div className="flex-row nbColumn6">{language}</div>
+        <div className="flex-row nbColumn6">{minPlayers}</div>
+        <div className="flex-row nbColumn6">{maxPlayers}</div>
+        {/* <div className="arrayCell">{minRecommendedAge}</div> */}
+        <div className="flex-row nbColumn6">{averageDuration}</div>
         <Link to={`/games/${_id}`} className="link">    <Button subClassName="button button-get">Détails</Button></Link> 
-
+        <Link to={`/games/${_id}`} className="link">    <Button subClassName="button button-get">Ajouter</Button></Link> 
 
       </div>
     </div>

@@ -40,10 +40,14 @@ function GamePost() {
     } = newGame;
 
     // Fetch options
+
+    const token = localStorage.getItem("token");
+
     let options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "bearer " + token
       },
       body: JSON.stringify(newGame),
     };

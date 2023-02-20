@@ -5,10 +5,13 @@ function ButtonDelete({ gameId, gameOrSession }) {
 
   async function deleteGameOrSession() {
     // Fetch options
+    const token = localStorage.getItem("token");
+
     let options = {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "bearer " + token,
       },
     };
 

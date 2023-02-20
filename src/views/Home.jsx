@@ -33,6 +33,11 @@ getUserInfo()
 return (
   <header className="App-header">
     <img src={logo} alt="Logo" className='logoHome' />
+
+    <div className='homeTitle-container'>
+    <h2 className='homeTitle greentxt'>Gères ta ludothèque de jeux </h2>
+    <h2 className='homeTitle yellowtxt'>Crées tes partie avec tes amis en ligne ou en vrai</h2>
+    </div>
     <div className="welcome">
     
       <div className='login'><Login /></div>

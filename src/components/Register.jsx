@@ -29,10 +29,12 @@ function Register() {
   async function handleSubmit(e) {
     e.preventDefault();
     // const {firstName, lastName, email, password, nickName, age, address1, address2, zipCode, city, country} = user;
+    const token = localStorage.getItem("token");
     let options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "bearer " + token
       },
       body: JSON.stringify(user),
     };

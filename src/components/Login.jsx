@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Input from "./Input";
-import "./style/login.css"
+import "./style/login.css";
+import { UserConnect } from "../App";
 
 function Login() {
 
+  const {setUserLog} = useContext(UserConnect)
  const navigate = useNavigate()
 
   // Set UseState for USER / ERRORMESSAGE / SUCCESSMESSAGE
@@ -36,6 +38,7 @@ function Login() {
     const result = await fetch("http://127.0.0.1:3001/login", options);
     // Response from DB on /login routes
     const data = await result.json();
+    
 
     // retreive token
     console.log(data.message);
@@ -43,6 +46,8 @@ function Login() {
     if (data.message) {
       setsuccessMessage(data.message);
       navigate("/sessions")
+      setUserLog(data.user)
+
     } else if (data.messageError) {
       setErrorMessage(data.messageError);
     }
@@ -50,6 +55,9 @@ function Login() {
     // Stock Token into LocalStorage
     localStorage.setItem("token", token);
   }
+
+
+
 
   return (
     <div className="flip-card-login">

@@ -12,9 +12,7 @@ import Button from "../components/atoms/Button";
 function PlayersId() {
   //get playersID from params (URL /:playerId)
   const { playerId } = useParams();
-
   const [editIsClicked, setEditIsClicked] = useState(false);
-
   const [playerDetail, setPlayerDetail] = useState({
     nickName: "",
     firstName: "",
@@ -37,9 +35,10 @@ function PlayersId() {
 
   // get the json player collection from DB
   async function getPlayerId() {
+    const token = localStorage.getItem("token");
     const options = {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", Authorization: "bearer " + token},
     };
     const result = await fetch(
       `http://127.0.0.1:3001/players/${playerId}`,

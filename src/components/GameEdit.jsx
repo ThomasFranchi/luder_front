@@ -26,15 +26,17 @@ function GameEdit({gameId}) {
 
   
   useEffect(() => {
-    getSessionsList();
+    getGamesList();
   }, []);
 
 
     // get the json game collection from DB
-    async function getSessionsList() {
+    async function getGamesList() {
+      const token = localStorage.getItem("token");
+
       const options = {
         method: "GET",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json",  Authorization: "bearer " + token },
       };
       const result = await fetch(`http://127.0.0.1:3001/games/${gameId}`, options);
       let data = await result.json();
@@ -60,11 +62,14 @@ function GameEdit({gameId}) {
       averageDuration,
     } = editGame;
 
+    const token = localStorage.getItem("token");
+
     // Fetch options
     let options = {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "bearer " + token
       },
       body: JSON.stringify(editGame),
     };
@@ -73,16 +78,15 @@ function GameEdit({gameId}) {
     const result = await fetch(`http://127.0.0.1:3001/games/${gameId}`, options);
     // Response from DB on /login routes
     const data = await result.json();
-
+ 
     if (!data.success) {
         setSuccessMessage(null);
         setErrorMessage(data.message);
         return;
       }
-  
       setSuccessMessage(data.message);
       setErrorMessage(null);
-  
+      
   }
 
   return (

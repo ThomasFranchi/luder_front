@@ -237,18 +237,29 @@ session storage
 JWT
 
 
-2. POST DANS GAMESID et bACK CONTROLLER GAME
 
-ERROR SI LOGIN INCORRECT
+QUESTIONS : 
+
+
+---- >>>> PlayersController différence entre req.params.playerId et Req.user
+--->>>> Affiche quand meme les page REACT mais sans acces à la BDD - > page vide.
+
+Si je veux faire une liste de jeux ou sessions propres à un joeur.
+ 
+je dois dupliquer toutes les infos que je veux utiliser (je peux pas juste meme l'id du jeu ou de la session ?)
 
 
 3. BACK : PUT ne fonctionne pas => FRONT : GAME EDIT
+-> findByIdAndUpdate
+utiliser plutot -> update
 
 
 
 4. Si je fais une liste des jeux [] possédé par le jouer. Il faut que je mette quoi dans ce tableau par jeu ?
 
 [{nom: Dune Imperium, id:56468765413546587, nomRegex: dune_imperium}] ?
+
+4 BIS : Comment ca marche les Model avec info IMBRIQUées ?
 
 
 
@@ -260,6 +271,8 @@ Comment l'appeler?
 
 
 
+
+
 INDEX true pour faire un NameID (pour ettre le nom concaténé dans l'url.)
 
 MARCHE PAS :
@@ -267,4 +280,20 @@ MARCHE PAS :
 COORDONNE dans SESEEIONPOST
 
 
+
+
+
+guillaume ------------------
+
+
+erreur: information disclosure : lors des GET ne pas TOUT RETOURNER
+
+faire une projection '13 playerscontrooler...
+
+dans le model select : false
+
+
+$set pour la commande PUT. (modifie que les valeurs spécifié=.
+
+Si pas loggué et 401 renvoyer vers "/" .
 
