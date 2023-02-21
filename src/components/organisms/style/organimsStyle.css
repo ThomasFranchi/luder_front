@@ -8,7 +8,7 @@
     width: 90%;
     margin: 20px auto;
     padding: 20px;
-    border-radius: 16px
+    border-radius: 4px
 }
 
 .section-title {
@@ -47,7 +47,7 @@
   .flex-table {
     display: flex;
     flex-flow: row wrap;
-    border-left: solid 1px;
+    /* border-left: solid 1px; */
     transition: 0.5s;
 
     /* &:first-of-type {
@@ -69,13 +69,13 @@
   }
 
   .flex-row {
-    width: calc(100% / 3);
+    width: calc(100% / 8);
     text-align: center;
     padding: 0.5em 0.5em;
-    border-right: solid 1px;
+    /* border-right: solid 1px; */
     border-bottom: solid 1px ;
   }
-
+  
   .flex-row.nbColumn6 {
     width: calc(100% / 8);
-  }
+  }  

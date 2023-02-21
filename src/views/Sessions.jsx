@@ -13,14 +13,14 @@ import { useNavigate } from "react-router-dom";
 
 function Sessions() {
 
-  const {userLog} =  useContext(UserConnect);
-  const navigate = useNavigate()
+  // const {userLog} =  useContext(UserConnect);
+  // const navigate = useNavigate()
 
-useEffect(()=> {
-  if (!userLog) {
-    navigate('/')
-  }
-}, [])
+// useEffect(()=> {
+//   if (!userLog) {
+//     navigate('/')
+//   }
+// }, [])
 
 
   const [sessionsSearch, setSessionsSearch] = useState([]);
@@ -28,20 +28,19 @@ useEffect(()=> {
   const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setsuccessMessage] = useState(null);
 
-  async function getSessionsList(e) {
-    const token = localStorage.getItem("token");
+  // async function getSessionsList(e) {
+  //   const token = localStorage.getItem("token");
+  //   const options = {
 
-    const options = {
+  //     method: "GET",
+  //     headers: { "Content-Type": "application/json", Authorization: "bearer " + token },
+  //   };
 
-      method: "GET",
-      headers: { "Content-Type": "application/json", Authorization: "bearer " + token },
-    };
-
-    const result = await fetch("http://127.0.0.1:3001/sessions", options);
-    let data = await result.json();
-    console.log(data);
-    setSessionsSearch(data);
-  }
+  //   const result = await fetch("http://127.0.0.1:3001/sessions", options);
+  //   let data = await result.json();
+  //   console.log("LOG DE SESSIONS.JSX",data);
+  //   setSessionsSearch(data);
+  // }
 
   return (
     <div className="mainContainer">

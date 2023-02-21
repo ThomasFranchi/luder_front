@@ -164,7 +164,7 @@ function GameEdit({gameId}) {
 
         <button>Modifier les informations</button>
 
-        {errorMessage !== null && <p>Erreur: {errorMessage}</p>}
+        {errorMessage !== null && <p>{errorMessage}</p>}
       {successMessage !== null && <p>{successMessage}</p>}
       </form>
     </div>

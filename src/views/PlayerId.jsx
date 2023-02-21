@@ -1,15 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, } from "react";
 import Input from "../components/Input";
 import "./style/listViews.css";
 import PlayersList from "../components/PlayersList";
 import { Routes, Route, useParams } from "react-router-dom";
 import ButtonDelete from "../components/ButtonDelete";
-// import PlayerEdit from "../components/PlayerEdit"
+import PlayerEdit from "../components/PlayerEdit"
 import Sidebar from "../components/sideBar";
 import SectionModule from "../components/organisms/SectionModule";
 import Button from "../components/atoms/Button";
 
+
 function PlayersId() {
+
   //get playersID from params (URL /:playerId)
   const { playerId } = useParams();
   const [editIsClicked, setEditIsClicked] = useState(false);
@@ -58,7 +60,7 @@ function PlayersId() {
 
       <div className="mainContainer-right">
       <div className="page-container green">
-          <h1 className="pageTitle">Joueurs</h1>
+          <h1 className="pageTitle">{playerDetail.nickName}</h1>
           <div className="page">
         <SectionModule title={`Fiche de ${playerDetail.nickName}`}>
         {playerDetail.title === "" && <p>Ce jeu n'existe pas !</p>}
@@ -76,9 +78,9 @@ function PlayersId() {
               Modifier les infos du joueur
             </button>
             <ButtonDelete gameOrSession="players" gameId={playerId} />
-            {/* { editIsClicked && < PlayerEdit playerId={playerId}/>} */}
-            <Button subClassName="button button-put">Modifier</Button>
-      <Button subClassName="button button-delete">retirer un jeu</Button>
+             { editIsClicked && < PlayerEdit playerId={playerId}/>}
+            {/* <Button subClassName="button button-put">Modifier</Button>*/}
+      <Button subClassName="button button-delete">supprimer mon compte</Button> 
           </div>
         )}
         </SectionModule>

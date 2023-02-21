@@ -241,8 +241,14 @@ JWT
 QUESTIONS : 
 
 
----- >>>> PlayersController différence entre req.params.playerId et Req.user
---->>>> Affiche quand meme les page REACT mais sans acces à la BDD - > page vide.
+---- >>>> POST SESSION appel un composant GET SELECTION
+GET session OK
+GET game KO !
+
+
+----->>>> Erreur quand je rafraichi la page.
+
+
 
 Si je veux faire une liste de jeux ou sessions propres à un joeur.
  

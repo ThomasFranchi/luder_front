@@ -80,8 +80,8 @@ function GamesId() {
       <p> Durée moyenne : {gameDetail.averageDuration}</p>
       <button onClick={() => setEditIsClicked(!editIsClicked)}>Modifier les infos du jeu</button>
       <ButtonDelete gameOrSession="games" gameId={gameId}/>
-      <Button subClassName="button button-post">Ajouter un jeu</Button>
-      <Button subClassName="button button-delete">retirer un jeu</Button>
+      {/* <Button subClassName="button button-post">Ajouter un jeu</Button>
+      <Button subClassName="button button-delete">retirer un jeu</Button> */}
       
       { editIsClicked && < GameEdit gameId={gameId}/>}
       

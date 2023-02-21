@@ -13,6 +13,24 @@ body {
       monospace;
   }
   
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  color:#f6ad9f
+
+}
+
+a:hover {
+color: black ;
+
+}
+
+
+a:visited {
+  text-decoration: none;
+}
+
+
 /* 
  COLORS
 */

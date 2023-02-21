@@ -15,9 +15,13 @@ function GetGameSelection() {
 
     const options = {
       method: "GET",
-      headers: { "Content-Type": "application/json" },
-      Authorization: "bearer " + token
+      headers: { 
+        "Content-Type": "application/json",
+      Authorization: "bearer " + token },
     };
+    console.log("options GAME SELECTION", options)
+    console.log("token GAME SELECTION", token)
+
     const result = await fetch("http://127.0.0.1:3001/games", options);
     let data = await result.json();
 

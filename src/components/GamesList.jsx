@@ -20,21 +20,25 @@ function GamesList() {
     };
     const result = await fetch("http://127.0.0.1:3001/games", options);
     let data = await result.json();
-    console.log(data);
 
     // check is the const Data is an Array
     if (Array.isArray(data)) {
       setGames(data);
-      console.log("GAMES", games);
     }
   }
+
+
+
+
+
+
 
   return (
     <div>
         <button onClick={getGamesList}>rafraichir la liste</button>
       <div class="table-container" role="table" aria-label="Destinations">
         <div class="flex-table header" role="rowgroup">
-          <div class="flex-row nbColumn6 " role="columnheader">
+          <div class="flex-row nbColumn6  " role="columnheader">
             Jeu
           </div>
           <div class="flex-row nbColumn6 " role="columnheader">
@@ -43,13 +47,13 @@ function GamesList() {
           <div class="flex-row nbColumn6 " role="columnheader">
             Langue
           </div>
-          <div class="flex-row nbColumn6 " role="columnheader">
+          <div class="flex-row nbColumn6 fixed" role="columnheader">
             Nb min.
           </div>
-          <div class="flex-row nbColumn6 " role="columnheader">
+          <div class="flex-row nbColumn6 fixed" role="columnheader">
           Nb max.
           </div>
-          <div class="flex-row nbColumn6 " role="columnheader">
+          <div class="flex-row nbColumn6 fixed" role="columnheader">
           Durée
           </div>
           <div class="flex-row nbColumn6 " role="columnheader">
@@ -60,7 +64,7 @@ function GamesList() {
 
     
       {games.map((game) => (
-        <Game {...game} />
+        <Game {...game} setGames={setGames} />
       ))}
     </div>
   );

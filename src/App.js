@@ -1,5 +1,5 @@
-import { lazy, Suspense, Context, createContext, useState, useEffect } from "react";
-import { createBrowserRouter, RouterProvider, useParams} from "react-router-dom";
+import { lazy, Suspense, createContext, useState, useEffect } from "react";
+import { createBrowserRouter, RouterProvider} from "react-router-dom";
 // import "./App.css";
 import "./views/style/views.css";
 // import logout from "./components/Logout"

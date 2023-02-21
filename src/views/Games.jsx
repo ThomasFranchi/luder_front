@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Input from "../components/Input";
 import "./style/listViews.css";
 import GamesList from "../components/GamesList";
 import Game from "../components/Game";
@@ -14,6 +13,8 @@ import Sidebar from "../components/sideBar";
 function Games() {
   // Set UseState for USER / ERRORMESSAGE / SUCCESSMESSAGE
 
+
+  
   const [errorMessage, setErrorMessage] = useState(null);
   const [successMessage, setsuccessMessage] = useState(null);
 
@@ -34,6 +35,9 @@ function Games() {
     const data = await response.json();
     console.log("data  from front", data);
   }
+
+
+
 
   /// METTRE DANNS UN USEEFFECT
   

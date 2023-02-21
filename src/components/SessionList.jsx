@@ -20,12 +20,10 @@ function SessionsList() {
     };
     const result = await fetch("http://127.0.0.1:3001/sessions", options);
     let data = await result.json();
-    console.log(data);
 
     // check is the const Data is an Array
     if (Array.isArray(data)) {
       setSessions(data);
-      console.log("SESSIONS", sessions);
     }
   }
 
