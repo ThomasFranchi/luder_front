@@ -43,13 +43,13 @@ function Login() {
     // retreive token
     console.log(data.message);
     const token = data.token;
-    if (data.message) {
+    if (data.success) {
       setsuccessMessage(data.message);
       navigate("/sessions")
       setUserLog(data.user)
 
-    } else if (data.messageError) {
-      setErrorMessage(data.messageError);
+    } else if (!data.success) {
+      setErrorMessage(data.message);
     }
 
     // Stock Token into LocalStorage

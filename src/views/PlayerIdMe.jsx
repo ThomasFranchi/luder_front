@@ -8,9 +8,10 @@ import PlayerEdit from "../components/PlayerEdit"
 import Sidebar from "../components/sideBar";
 import SectionModule from "../components/organisms/SectionModule";
 import Button from "../components/atoms/Button";
+import GamesListMe from "../components/GamesListMe";
 
 
-function PlayersId() {
+function PlayersIdMe() {
 
   //get playersID from params (URL /:playerId)
   const { playerId } = useParams();
@@ -43,7 +44,7 @@ function PlayersId() {
       headers: { "Content-Type": "application/json", Authorization: "bearer " + token},
     };
     const result = await fetch(
-      `http://127.0.0.1:3001/players/${playerId}`,
+      `http://127.0.0.1:3001/players/me`,
       options
     );
     let data = await result.json();
@@ -74,16 +75,21 @@ function PlayersId() {
             <p> Age: {playerDetail.age}</p>
             <p> Nombre de partie hébergées : {playerDetail.sessionHosted}</p>
             <p> Nombre de partie jouées : {playerDetail.sessionPlayed}</p>
-            {/* <button onClick={() => setEditIsClicked(!editIsClicked)}>
+            <button onClick={() => setEditIsClicked(!editIsClicked)}>
               Modifier les infos du joueur
-            </button> */}
-            {/* <ButtonDelete gameOrSession="players" gameId={playerId} /> */}
-             {/* { editIsClicked && < PlayerEdit playerId={playerId}/>} */}
+            </button>
+            <ButtonDelete gameOrSession="players" gameId={playerId} />
+             { editIsClicked && < PlayerEdit playerId={playerId}/>}
             {/* <Button subClassName="button button-put">Modifier</Button>*/}
-      {/* <Button subClassName="button button-delete">supprimer mon compte</Button>  */}
+      <Button subClassName="button button-delete">supprimer mon compte</Button> 
+
           </div>
+          
         )}
+
         </SectionModule>
+        <SectionModule title="Mes jeux">  <GamesListMe /> </SectionModule>
+
       </div>
       </div>
       </div>
@@ -91,4 +97,4 @@ function PlayersId() {
   );
 }
 
-export default PlayersId;
+export default  PlayersIdMe;

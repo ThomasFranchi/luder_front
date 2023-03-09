@@ -11,7 +11,6 @@ import "../components/atoms/style/atomsStyle.css"
 import Button from "./atoms/Button";
 import logout from "./Logout"
 import { UserConnect } from "../App";
-
 function Sidebar() {
 
     const {setUserLog, userLog} = useContext(UserConnect)
@@ -61,9 +60,9 @@ function Sidebar() {
                 <ul>
                 <Link to="/"> <img src={logo} alt="Logo" className="logoSideBar"/></Link>
 
-                    <li className="sideBar-li-avatar">   <img src={Avatar} className="avatar"  alt="Avatar"/> 
-                    <Link to="/players/me" className="link">{userLog?.nickName}</Link>
-                     {/* <CurrentUseProfil /> */}
+                    <li className="sideBar-li-avatar"> <img src={Avatar} className="avatar" alt="Avatar"/> 
+                    <Link to="/PlayerIdMe" className="link">{userLog?.nickName}</Link>
+          
                     </li>
               
                     <li>

@@ -1,8 +1,6 @@
 import { lazy, Suspense, createContext, useState, useEffect } from "react";
-import { createBrowserRouter, RouterProvider} from "react-router-dom";
-// import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./views/style/views.css";
-// import logout from "./components/Logout"
 
 const Sessions = lazy(() => import("./views/Sessions"));
 const Games = lazy(() => import("./views/Games"));
@@ -11,28 +9,23 @@ const Home = lazy(() => import("./views/Home"));
 const Error = lazy(() => import("./views/Error"));
 const Players = lazy(() => import("./views/Players"));
 const PlayerId = lazy(() => import("./views/PlayerId"));
+const PlayerIdMe = lazy(() => import("./views/PlayerIdMe"));
 
-
-
-const router = createBrowserRouter(
-  [
- 
-
+const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <Suspense >
-       <Home />
+      <Suspense>
+        <Home />
       </Suspense>
     ),
-    errorElement : <Error />
+    errorElement: <Error />,
   },
-
 
   {
     path: "/sessions",
     element: (
-      <Suspense >
+      <Suspense>
         <Sessions />
       </Suspense>
     ),
@@ -40,7 +33,7 @@ const router = createBrowserRouter(
   {
     path: "/games",
     element: (
-      <Suspense >
+      <Suspense>
         <Games />
       </Suspense>
     ),
@@ -48,7 +41,7 @@ const router = createBrowserRouter(
   {
     path: "/games/:gameId",
     element: (
-      <Suspense >
+      <Suspense>
         <GamesId />
       </Suspense>
     ),
@@ -57,7 +50,7 @@ const router = createBrowserRouter(
   {
     path: "/players",
     element: (
-      <Suspense >
+      <Suspense>
         <Players />
       </Suspense>
     ),
@@ -65,56 +58,50 @@ const router = createBrowserRouter(
   {
     path: "/players/:playerId",
     element: (
-      <Suspense >
+      <Suspense>
         <PlayerId />
       </Suspense>
     ),
   },
+  {
+    path: "/playerIdMe",
+    element: (
+      <Suspense>
+        <PlayerIdMe />
+      </Suspense>
+    ),
+  },
+]);
 
-
-
-]
-
-);
-
-//Export context 
+//Export context
 export const UserConnect = createContext();
 
-
 function App() {
-
-useEffect(() => {
-  getUser();
-}, []);
+  useEffect(() => {
+    getUser();
+  }, []);
 
   const [userLog, setUserLog] = useState(null);
-  
   async function getUser() {
     const token = localStorage.getItem("token");
     const options = {
       method: "GET",
-      headers: { "Content-Type": "application/json", 
-      Authorization: "bearer " + token},
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "bearer " + token,
+      },
     };
-    const result = await fetch(
-      `http://127.0.0.1:3001/players/me`,
-      options
-    );
+    const result = await fetch(`http://127.0.0.1:3001/players/me`, options);
     let data = await result.json();
     if (data !== null) {
       setUserLog(data);
     }
   }
 
-
-
-
   return (
-    
-    <div className="App">  
-
-        <UserConnect.Provider value={{userLog, setUserLog, getUser}}>
-          <RouterProvider router={router} />
+    <div className="App">
+      <UserConnect.Provider value={{ userLog, setUserLog, getUser }}>
+        <RouterProvider router={router} />
       </UserConnect.Provider>
     </div>
   );

@@ -19,7 +19,7 @@ function Game({setGames,...props}) {
 
   async function addGameCollection() {
     const token = localStorage.getItem("token");
-
+console.log(props)
     const options = {
       method: "PUT",
       headers: {

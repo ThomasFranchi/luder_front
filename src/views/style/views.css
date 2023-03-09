@@ -47,7 +47,7 @@ background-color: #c2c982;
 
 
 .yellow {
-background-color: #fbb27b ;
+background-color: #f7b077 ;
 /*  #e07a5c #9c5b48 */
 }
 
@@ -89,12 +89,11 @@ margin: 0 10px 26px 0
 }
 
 .page {
-    background-color: #282c3448;
     /* opacity: 0.2; */
     width: 90%;
     margin: 0 auto 40px auto;
-    border-radius: 40px;   
-    padding: 20px 0
+    border-radius: 4px;   
+    padding: 10px 0
 }
 
 

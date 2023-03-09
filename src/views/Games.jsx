@@ -6,7 +6,7 @@ import GetGameSelection from "../components/GameSelection";
 import SectionModule from "../components/organisms/SectionModule";
 import GamePost from "../components/GamePost";
 import Footer from "../components/organisms/Footer";
-
+import GamesListMe from "../components/GamesListMe";
 
 import Sidebar from "../components/sideBar";
 
@@ -53,7 +53,7 @@ function Games() {
           <h1 className="pageTitle">Ludotèque</h1>
           <div className="page">
           
-          <SectionModule title="Mes jeux">  <Game /> </SectionModule>
+          <SectionModule title="Mes jeux">  <GamesListMe /> </SectionModule>
           <SectionModule title="Ajouter un jeu">  <GamePost /> </SectionModule>
           <SectionModule title="Tous les jeux">  <GamesList /> </SectionModule>
           </div>

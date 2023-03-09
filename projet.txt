@@ -241,23 +241,10 @@ JWT
 QUESTIONS : 
 
 
----- >>>> POST SESSION appel un composant GET SELECTION
-GET session OK
-GET game KO !
-
-
------>>>> Erreur quand je rafraichi la page.
-
-
-
 Si je veux faire une liste de jeux ou sessions propres à un joeur.
  
 je dois dupliquer toutes les infos que je veux utiliser (je peux pas juste meme l'id du jeu ou de la session ?)
 
-
-3. BACK : PUT ne fonctionne pas => FRONT : GAME EDIT
--> findByIdAndUpdate
-utiliser plutot -> update
 
 
 
